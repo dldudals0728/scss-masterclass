@@ -1,6 +1,18 @@
 .wrapper {
   /*flex box를 사용하기 위해서, 자신의 바로 위 부모의 display 속성이 flex여야 한다!*/
   display: flex;
+  /* flex box의 기본값 */
+  /* flex-direction: row; */
+
+  /* 
+  main / cross == default / another
+  justify-context: main axis방향으로 item을 움직이게 한다.
+  align-items: cross axis방향으로 item을 움직이게 한다.
+  justify-context & align-items 모두 "부모 flex box 기준!"
+  */
+  justify-content: space-around;
+  align-items: center;
+  height: 50vh;
 }
 .box {
   width: 200px;
