@@ -1,16 +1,7 @@
 .father {
   display: flex;
-  /* Main Axis */
   justify-content: space-around;
-  height: 100vh;
-  /* flex-wrap default: nowrap */
-  /* 
-  nowrap: 무조건 한 줄에 있도록 해라!
-  wrap: child의 크기를 꼭 유지해라! ==> 자동 줄바꿈?
-  */
-  flex-wrap: wrap;
-  /* align-content: wrap으로 인해 줄이 바뀌었을 때, 여백을 컨트롤한다. */
-  align-content: center;
+  align-items: center;
 }
 .child {
   width: 200px;
@@ -21,4 +12,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.child:nth-child(2) {
+  background: #000;
+  /* flex-shrink: box가 찌그러질 때, 다른 box에 비해 n배 찌그러지도록 한다. default=1 */
+  /* flex-shrink: 2; */
+  flex-grow: 3;
+}
+
+.child:nth-child(3) {
+  /*
+  flex-grow: 남는 공간을 차지하도록 한다. default: 1
+  같은 라인에 flex-grow 속성을 가진 element가 2개 이상일 경우 나눠 가지고, 하나의 element만 가질 경우, 해당 요소가 모든 빈 공간을 차지한다.
+  */
+  flex-grow: 2;
 }
