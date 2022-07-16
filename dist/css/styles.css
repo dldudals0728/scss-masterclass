@@ -1,11 +1,13 @@
 .father {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 .child {
-  width: 200px;
-  height: 200px;
+  /* flex-basis: flex 요소의 기본 넓이(혹은 높이. main axis를 따른다.)를 정해준다. flex-shrink or flex-grow에 의해 변환 가능 */
+  flex-basis: 300px;
   background: peru;
   color: white;
   font-size: 50px;
@@ -16,15 +18,4 @@
 
 .child:nth-child(2) {
   background: #000;
-  /* flex-shrink: box가 찌그러질 때, 다른 box에 비해 n배 찌그러지도록 한다. default=1 */
-  /* flex-shrink: 2; */
-  flex-grow: 3;
-}
-
-.child:nth-child(3) {
-  /*
-  flex-grow: 남는 공간을 차지하도록 한다. default: 1
-  같은 라인에 flex-grow 속성을 가진 element가 2개 이상일 경우 나눠 가지고, 하나의 element만 가질 경우, 해당 요소가 모든 빈 공간을 차지한다.
-  */
-  flex-grow: 2;
 }
