@@ -1,22 +1,22 @@
-.wrapper {
-  /*flex box를 사용하기 위해서, 자신의 바로 위 부모의 display 속성이 flex여야 한다!*/
+.father {
   display: flex;
-  /* flex box의 기본값 */
-  /* flex-direction: row; */
 
-  /* 
-  main / cross == default / another
-  justify-context: main axis방향으로 item을 움직이게 한다.
-  align-items: cross axis방향으로 item을 움직이게 한다.
-  justify-context & align-items 모두 "부모 flex box 기준!"
-  */
   justify-content: space-around;
-  align-items: center;
-  height: 50vh;
+  height: 100vh;
 }
-.box {
+.child {
   width: 200px;
   height: 200px;
   background: peru;
   color: white;
+}
+
+.child:nth-child(2) {
+  /* child of flex box에게 줄 수 있는 유일한 속성 2가지 */
+  align-self: center;
+  order: 1; /*order default: 0*/
+}
+
+.child:nth-child(3) {
+  align-self: flex-end;
 }
