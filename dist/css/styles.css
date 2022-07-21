@@ -1,17 +1,39 @@
-.father {
-  display: grid;
-  /* grid: 기본적으로 원하는 column, row의 수 만큼 사이즈를 정해주면 grid가 생겨난다. */
-  grid-template-columns: 250px 250px 250px;
-  grid-template-rows: 100px 50px 300px;
-  /* column-gap: 10px;
-  row-gap: 10px; */ /*묶어서 한번에 gap: 10px;*/
-  gap: 10px;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-.child {
-  background: peru;
-  color: white;
-  font-size: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.grid {
+  display: grid;
+  /* repeat(4, 200px) === 200px 200px 200px 200px */
+  /* auto: 다음 commit에! */
+  grid-template-columns: auto 200px;
+  grid-template-rows: 100px repeat(2, 200px) 100px;
+  /* 단순히 grid-template-areas를 정해주면, css가 어떤게 header이고, 어떤게 content인지 모른다. 따라서 grid-area로 이름을 알려주어야 한다. className으로 하는게 아님!!! */
+  grid-template-areas:
+    "header header header header"
+    /* 한 공간을 빈공간으로 놓으려면 grid-area를 '.'으로 놓는다. */
+    /* "content content . nav"  하나의 공간을 공유하면 모두 해줘야 됨!
+    "content content . nav" */
+    "content content content nav"
+    "content content content nav"
+    "footer footer footer footer ";
+}
+
+.header {
+  background-color: #2ecc71;
+  /* grid-area: 주의!! string으로 넘겨주는 것이 아님!!! "header" (X) / header (O) */
+  grid-area: header;
+}
+.content {
+  background-color: #3498db;
+  grid-area: content;
+}
+.nav {
+  background-color: #8e44ad;
+  grid-area: nav;
+}
+.footer {
+  background-color: #f39c12;
+  grid-area: footer;
 }
