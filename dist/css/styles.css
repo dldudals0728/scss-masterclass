@@ -12,26 +12,22 @@ body {
 
 .header {
   background-color: #2ecc71;
-  /* 그리드 늘리기! grid stretch */
-  /* grid-column(row)-start(end)의 값은, column(row)가 아니라, "라인"이다! (라인: 해당 그리드의 "시작"과 "끝")
-    ex) 기본적인 그리드의 (1, 1)에 위치한 요소는, column의 start가 라인 1이고, end가 라인2이다. */
-  grid-column-start: 1;
-  grid-column-end: 5;
+  /* span: span [cell] ==> [cell]개를 차지한다! */
+  grid-column: span 4;
 }
 .content {
   background-color: #3498db;
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 4;
+  /* grid-column-start: [start];
+  grid-column-end: [end];의 Shortcuts ==> grid-column: [start] / [end: -1 === last!]; */
+  grid-column: 1 / -2;
+  /* start line: 2, #cell: 2 */
+  grid-row: 2 / span 2;
 }
 .nav {
   background-color: #8e44ad;
-  grid-row-start: 2;
-  grid-row-end: 4;
+  grid-row: span 2;
 }
 .footer {
   background-color: #f39c12;
-  grid-column-start: 1;
-  grid-column-end: 5;
+  grid-column: span 4;
 }
