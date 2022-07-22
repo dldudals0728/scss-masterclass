@@ -7,25 +7,25 @@ body {
   color: white;
   display: grid;
   gap: 5px;
-  height: 250vh;
   grid-template-columns: repeat(4, 100px);
   grid-template-rows: repeat(4, 100px);
+  /* grid-auto-rows(columns): 미리 지정한 grid-template보다 더 많은 데이터가 들어오면, 초과된 데이터에 grid-auto-rows(columns)를 적용시킨다! */
+  /* grid-auto-rows: 100px; */
+  /* cell이 추가되는 방향(direction)을 결정한다(순서도 변경됨). grid-auto-columns를 사용하기 위해 column값으로 변경해 주어야 함! */
+  grid-auto-flow: column;
+  grid-auto-columns: 100px;
+
+  /*
+    Nico doing
+    grid-template-rows: 100px;
+    grid-auto-rows: 100px;
+  */
 }
 
-.header {
-  background-color: #2ecc71;
-  /* 개별 cell에 align-items, justify-items 적용시키기: self */
-  /* align-self: end;
-  justify-self: center; */
-  /* Shortcuts: place-self: V H */
-  place-self: end center;
+.item:nth-child(odd) {
+  background: #2ecc71;
 }
-.content {
-  background-color: #3498db;
-}
-.nav {
-  background-color: #8e44ad;
-}
-.footer {
-  background-color: #f39c12;
+
+.item:nth-child(even) {
+  background: #3498db;
 }
