@@ -4,22 +4,21 @@ body {
 }
 
 .grid {
-  background: #000;
   color: white;
   display: grid;
   gap: 5px;
   height: 250vh;
   grid-template-columns: repeat(4, 100px);
   grid-template-rows: repeat(4, 100px);
-  /* justify(align)-content: grid 전체를 움직인다! */
-  /* justify-content: space-between;
-  align-content: space-between; */
-  /* Shortcuts: place-content: V H */
-  place-content: end center;
 }
 
 .header {
   background-color: #2ecc71;
+  /* 개별 cell에 align-items, justify-items 적용시키기: self */
+  /* align-self: end;
+  justify-self: center; */
+  /* Shortcuts: place-self: V H */
+  place-self: end center;
 }
 .content {
   background-color: #3498db;
