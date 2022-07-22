@@ -4,16 +4,18 @@ body {
 }
 
 .grid {
+  background: #000;
+  color: white;
   display: grid;
   gap: 5px;
-  height: 50vh;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  /* fustify(align)-items: stretch(default) 수평(수직)적으로 content를 조정(내부 컨텐츠 기준!) */
-  /* justify-items: center;
-  align-items: center; */
-  /* Shortcuts: place-items: V H */
-  place-items: end start;
+  height: 250vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+  /* justify(align)-content: grid 전체를 움직인다! */
+  /* justify-content: space-between;
+  align-content: space-between; */
+  /* Shortcuts: place-content: V H */
+  place-content: end center;
 }
 
 .header {
