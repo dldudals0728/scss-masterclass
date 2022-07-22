@@ -7,28 +7,24 @@ body {
   display: grid;
   gap: 5px;
   height: 50vh;
-  /* grid-template에서는 repeat() 적용 불가! */
-  grid-template:
-    /* grid-area height(row) ... / width(column) */
-    /* Line Naming은 모두 다 하거나, 하나도 하지 않거나 */
-    "header header header header" 1fr
-    "content content content nav" 2fr
-    "footer footer footer footer" 1fr / 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  /* fustify(align)-items: stretch(default) 수평(수직)적으로 content를 조정(내부 컨텐츠 기준!) */
+  /* justify-items: center;
+  align-items: center; */
+  /* Shortcuts: place-items: V H */
+  place-items: end start;
 }
 
 .header {
   background-color: #2ecc71;
-  grid-area: header;
 }
 .content {
   background-color: #3498db;
-  grid-area: content;
 }
 .nav {
   background-color: #8e44ad;
-  grid-area: nav;
 }
 .footer {
   background-color: #f39c12;
-  grid-area: footer;
 }
