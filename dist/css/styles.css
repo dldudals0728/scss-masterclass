@@ -7,6 +7,10 @@ body {
   color: white;
   display: grid;
   gap: 5px;
+  /* max(min)-content: size. contents가 가질 수 있는 최대(최소)사이즈로 조정. div에 무엇이 들었는지에 따라 design 가능! */
+  /* minmax, repeat와 함께 사용하면, cool한 반응형 디자인 가능. */
+  /* grid-template-columns: min-content max-content; */
+  grid-template-columns: repeat(auto-fit, minmax(20px, max-content));
   grid-auto-rows: 100px;
   margin-bottom: 30px;
 }
@@ -17,16 +21,4 @@ body {
 
 .item:nth-child(even) {
   background: #3498db;
-}
-
-.grid:first-child {
-  /* auto-fill: 주어진 사이즈 내에서 최대한으로 거능한 (비어있는)column을 만들어낸다. */
-  /* 작은 화면에서는 auto-fill, auto-fit 서로 같음! */
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-}
-
-.grid:last-child {
-  /* auto-fit: 현재 있는 element들을 stretch해서 최대한 채운다! */
-  /* 작은 화면에서는 auto-fill, auto-fit 서로 같음! */
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
