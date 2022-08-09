@@ -70,6 +70,9 @@ After Nesting
   }
   h2 {
     color: blue;
+    &:hover {
+      background-color: red;
+    }
   }
   button {
     color: red;
