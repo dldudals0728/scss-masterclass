@@ -1,0 +1,78 @@
+# Nomadcoders scss 작동 방식
+
+scss는 gulpfile.babel.js 파일의 watch, src, dest로 작동한다.
+
+```
+watch: "src/scss/*",
+src: "src/scss/styles.scss",
+dest: "dist/css",
+```
+
+watch를 통해 명시된 경로의 파일들의 변화를 감지하고, src의 파일을 통해 dest 파일을 수정한다.
+
+## HTML 파일의 link 태그는 반드시 css(not scss)를 가리킬 것!
+
+```
+<link rel="stylesheet" href="dist/css/styles.css" />
+```
+
+# 2. '\_'로 시작하는 .scss파일
+
+'\_potato.scss'와 같은 파일은, css로 변환하지 않을 scss파일, 즉 scss만을 위한 파일로 사용된다.
+이런 파일들은 css로 compile 되지 않는다.
+
+# 3. scss의 변수 선언(in \_파일.scss)
+
+변수명 앞에 $를 사용하고, 속성을 입력한다!
+
+```
+$bg: #e7473c;
+```
+
+그 후 scss파일에 사용하기 위해서는 import를 해주고 변수를 사용하면 된다.
+
+```
+in styles.scss
+@import "_파일.scss";
+body { background: $bg; }
+```
+
+# 4. Nesting
+
+코드를 더욱 읽기 쉽게!!
+
+before Nesting
+
+```css
+.box {
+  margin-top: 20px;
+}
+
+.box h2 {
+  color: blue;
+}
+
+.box button {
+  color: red;
+}
+.box:hover {
+  background-color: green;
+}
+```
+
+After Nesting
+
+```scss
+.box {
+  margin-top: 20px;
+  &:hover {
+    background-color: green;
+  }
+  h2 {
+    color: blue;
+  }
+  button {
+    color: red;
+  }
+}
+```
