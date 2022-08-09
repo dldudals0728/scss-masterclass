@@ -79,3 +79,62 @@ After Nesting
   }
 }
 ```
+
+# Mixins
+
+css를 프로그래밍 언어의 함수처럼 사용할 수 있다.
+in mixins.scss
+
+```scss
+@mixin link($color) {
+  text-decoration: none;
+  display: block;
+  color: $color;
+}
+```
+
+in styles.scss
+
+```scss
+@import "_mixins";
+a {
+  margin-bottom: 10px;
+  &:nth-child(odd) {
+    @include link(blue);
+  }
+  &:nth-child(even) {
+    @include link(red);
+  }
+}
+```
+
+또는, if, else-if 와 같은 문법도 사용이 가능하다.
+in mixins.scss
+
+```scss
+@mixin link($word) {
+  text-decoration: none;
+  display: block;
+  @if $word == "odd" {
+    color: blue;
+  } @else if $word == "even" {
+    color: red;
+  } @else {
+    color: black;
+  }
+}
+```
+
+in styles.scss
+
+```scss
+a {
+  margin-bottom: 10px;
+  &:nth-child(odd) {
+    @include link("odd");
+  }
+  &:nth-child(even) {
+    @include link("even");
+  }
+}
+```
