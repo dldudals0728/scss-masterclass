@@ -142,6 +142,56 @@ a {
 }
 ```
 
+추가적으로, @content 키워드를 사용하면 styles.scss에서 적용된 스타일을 가져올 수 있다.
+
+### in \_mixins.scss
+
+```scss
+$minIphone: 500px;
+$maxIphone: 690px;
+$minTablet: $minIphone + 1;
+$maxTablet: 1120px;
+
+@mixin responsive($device) {
+  @if $device == "iphone" {
+    @media screen and (min-width: $minIphone) and (max-width: $maxIphone) {
+      @content;
+    }
+  } @else if $device == "tablet" {
+    @media screen and (min-width: $minTablet) and (max-width: $maxTablet) {
+      @content;
+    }
+  } @else if $device == "iphone-l" {
+    @media screen and (min-width: $minIphone) and (max-width: $maxIphone) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $device == "ipad-l" {
+    @media screen and (min-width: $minTablet) and (max-width: $maxTablet) and (orientation: landscape) {
+      @content;
+    }
+  }
+}
+```
+
+### in styles.scss
+
+```scss
+@import "_mixins";
+
+h1 {
+  color: red;
+  @include responsive("iphone") {
+    color: yellow;
+  }
+  @include responsive("iphone-l") {
+    font-size: 60px;
+  }
+  @include responsive("tablet") {
+    color: green;
+  }
+}
+```
+
 # 6. Extends
 
 Extends: 같은 코드를 중복하고 싶지 않을 때 사용! 공통적인 부분을 만들어 코드에서 사용한다.
