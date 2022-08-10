@@ -31,8 +31,9 @@ $bg: #e7473c;
 
 그 후 scss파일에 사용하기 위해서는 import를 해주고 변수를 사용하면 된다.
 
+### in styles.scss
+
 ```
-in styles.scss
 @import "_파일.scss";
 body { background: $bg; }
 ```
@@ -41,7 +42,7 @@ body { background: $bg; }
 
 코드를 더욱 읽기 쉽게!!
 
-before Nesting
+### before Nesting
 
 ```css
 .box {
@@ -60,7 +61,7 @@ before Nesting
 }
 ```
 
-After Nesting
+### After Nesting
 
 ```scss
 .box {
@@ -80,10 +81,11 @@ After Nesting
 }
 ```
 
-# Mixins
+# 5. Mixins
 
 css를 프로그래밍 언어의 함수처럼 사용할 수 있다.
-in mixins.scss
+
+### in \_mixins.scss
 
 ```scss
 @mixin link($color) {
@@ -93,7 +95,7 @@ in mixins.scss
 }
 ```
 
-in styles.scss
+### in styles.scss
 
 ```scss
 @import "_mixins";
@@ -109,7 +111,8 @@ a {
 ```
 
 또는, if, else-if 와 같은 문법도 사용이 가능하다.
-in mixins.scss
+
+### in \_mixins.scss
 
 ```scss
 @mixin link($word) {
@@ -125,7 +128,7 @@ in mixins.scss
 }
 ```
 
-in styles.scss
+### in styles.scss
 
 ```scss
 a {
@@ -136,5 +139,40 @@ a {
   &:nth-child(even) {
     @include link("even");
   }
+}
+```
+
+# 6. Extends
+
+Extends: 같은 코드를 중복하고 싶지 않을 때 사용! 공통적인 부분을 만들어 코드에서 사용한다.
+
+### in \_buttons.scss
+
+```scss
+%button {
+  font-family: inherit;
+  border-radius: 7px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  background-color: peru;
+  color: white;
+  font-weight: 500;
+}
+```
+
+### in styles.scss
+
+```scss
+@import "_buttons";
+
+a {
+  @extend %button;
+  text-decoration: none;
+}
+
+button {
+  @extend %button;
+  border: none;
 }
 ```
