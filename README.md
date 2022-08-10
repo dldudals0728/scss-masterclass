@@ -82,7 +82,9 @@ body { background: $bg; }
 ```
 
 # 5. Mixins
-
+참고!
+[awesome scss mixins](https://github.com/colourgarden/awesome-scss)   
+Bourbon, Sass MediaQueries, Animate.scss 등 참고사항 많음!
 css를 프로그래밍 언어의 함수처럼 사용할 수 있다.
 
 ### in \_mixins.scss
